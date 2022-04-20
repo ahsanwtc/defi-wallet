@@ -1,7 +1,8 @@
 // SPDX-License-Identifier: MIT
-pragma solidity >=0.4.22 <0.9.0;
+pragma solidity ^0.7.3;
 
-contract CEthInterface {
-  constructor() public {
-  }
+interface CEthInterface {
+  function mint() external payable;
+  function redeemUnderlying(uint redeemAmount) external view returns (uint);
+  function balanceOfUnderlying(address owner) external returns(uint);
 }
