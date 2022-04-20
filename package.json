@@ -1,0 +1,26 @@
+{
+  "name": "defi-wallet",
+  "version": "1.0.0",
+  "description": "A DeFi Wallet with integration to Compound &amp; Uniswap",
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ahsanwtc/defi-wallet.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ahsanwtc/defi-wallet/issues"
+  },
+  "homepage": "https://github.com/ahsanwtc/defi-wallet#readme",
+  "dependencies": {
+    "@openzeppelin/contracts": "^3.2.1-solc-0.7"
+  }
+}
