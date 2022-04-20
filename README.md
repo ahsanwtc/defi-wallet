@@ -1,2 +1,2 @@
 # defi-wallet
-A DeFi Wallet with integration to Compound &amp; Uniswap
+A DeFi Wallet with integration to Compound
