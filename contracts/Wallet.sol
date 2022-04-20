@@ -17,7 +17,25 @@ contract Wallet is Compound {
     supply(_cTokenAddress, _underlyingAmount);
   }
 
+  function withdraw(address _cTokenAddress, uint _underlyingAmount, address _recipient) onlyAdmin external {
+    require(getUnderlyingBalance(_cTokenAddress) >= _underlyingAmount, 'balance too low');
+    claimComp();
+    redeem(_cTokenAddress, _underlyingAmount);
+    address underlyingTokenAddress = getUnderlyingAddress(_cTokenAddress);
+    IERC20(underlyingTokenAddress).transfer(_recipient, _underlyingAmount);
+
+    address compTokenAddress = getCompAddress();
+    IERC20 compToken = IERC20(compTokenAddress);
+    uint compTokenBalance = compToken.balanceOf(address(this));
+    compToken.transfer(_recipient, compTokenBalance);
+  }
+
   receive() payable external {
     supplyEth(msg.value);
+  }
+
+  modifier onlyAdmin() {
+    require(msg.sender == admin, 'only admin');
+    _;
   }
 }
